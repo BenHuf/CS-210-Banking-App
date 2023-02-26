@@ -1,0 +1,121 @@
+============================
+* Project 2                *
+* Airgead Banking          *
+*                          *
+* Date: Feb. 5, 2023       *
+* Author: Benjamin Huffman *
+============================
+
+To enhance readability in main() a Bank class and an Application class should be created to store needed values and methods
+
+===============================================================
+* The Bank class should have the following fields and methods *
+===============================================================
+Fields:
+  initialInvestmentAmount (private double)
+  monthlyDeposit (private double)
+  interestRate (private double)
+  numberOfYears (private int)
+
+Methods:
+  Bank(initialInvestmentAmount, monthlyDeposit, interestRate, numberOfYears) - Constructor
+    Instantiate a new Bank object with the provided values
+
+  printDetails()
+    Prints the provided year index, year end balance, and interest earned as columns in a row
+
+  calculateBalanceWithoutMonthlyDeposit() (void)
+    Calculate the year-end balance and year-end earned interest without monthly deposits
+    Call printDetials() for each year to create a table of values
+    Calculate and print the the total interest earned during the number of years provided
+    Print a total row showing the total interest earned
+    Return the ending balance and total interest earned using pointers/references
+
+  calculateBalanceWithMonthlyDeposit() (void)
+    Calculate the year-end balance and year-end earned interest with additional monthly deposits
+    Call printDetails() for each year
+    Return the ending balance and total interest earned using points/references
+
+  report() (void)
+    To display the requested reports a function should be created which does the following
+      Print a header to provide user context for table showing year, year-end balance, and year-end interest earned
+      Call bank.calculateBalanceWithoutMonthlyDeposit() to calculate and print annual year-end balance, annual year-end interest earned, and total interest earned without monthly deposits
+
+      Print a header to provide user context for table showing year, balance, and interest
+      Call bank.calculateBalanceWithMonthlyDeposit() to calculate and print annual year-end balance, annual year-end interest earned, and total interest earned with monthly deposits
+
+===========================================================
+* The Application class should have the following methods *
+===========================================================
+Application() - Constructor 
+  Instantiate an Application object.
+
+mainMenu() (Bank)
+  To display the main menu a function should be created which does the following
+    Print the requested "Data Input" header
+
+    Print "Initial Investment Amount:"
+    Accept user input
+    Store value as a double called initialInvestment
+    While initialInvestment is not a positive real number
+      Print "Invalid response. Please enter a positive real number"
+      Print "Initial Investment Amount: "
+      Accept user input for initial investment
+      Store value as a double called initialInvestment
+
+    Print "Monthly Deposit:"
+    Accept user input
+    Store value as a double called monthlyDeposit
+    While monthlyDeposit is not a positive real number
+      Print "Invalid response. Please enter a positive real number"
+      Print "Monthly Deposit: "
+      Accept user input
+      Store value as a double called monthlyDeposit
+    
+    Print "Annual Interest:"
+    Accept user input
+    Store the validated value as a double called interestRate
+    While interestRate is not a positive real number
+      Print "Invalid response. Please enter a positive real number"
+      Print "Annual Interest: "
+      Accept user input
+      Store value as a double called interestRate
+    
+    Print "Number of Years:"
+    Accept user input
+    Store the validated value as an int called numberOfYears
+    While numberOfYears is not a positive integer
+      Print "Invalid response. Please enter a positive whole number"
+      Print "Number of Years:"
+      Accept user input
+      Store value as an int called numberOfYears
+
+    Print "Press any key to continue . . ."
+    Await keypress
+
+    Return a Bank constructed from initialInvestment, monthlyDeposit, interestRate, and numberOfYears
+
+restart() (bool)
+  Print "Would you like to return to the main menu?"
+  Print "Enter 'Y' to return to main menu or 'N' to exit"
+  Accept user input and store as a char called userInput
+
+  While userInput is not 'Y' or 'N' 
+    Print "Invalid entry. Enter 'Y' to return to main menu or 'N' to exit"
+    Accept user input and store in userInput
+
+  If userInput is 'Y'
+    return True 
+
+  If userInput is 'N'
+    return false
+
+==========================================
+* main() should have the following steps *
+==========================================
+Call Application() to create a new instance of the application object and name it app
+Call app.mainMenu() to display the main menu and begin application functionality and assign the returned Bank to a variable bank
+Call bank.reports to print out reports
+Call app.restart() to prompt for restart or exit
+If True - restart
+Return(0) to end the program once application is finished
